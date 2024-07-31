@@ -2,7 +2,6 @@ var updateValue = function (ele) {
     var itemQ = parseFloat($(ele).find('.quantity input').val());
     var itemP = parseFloat($(ele).find('.Price input').val());
   
-    // market value is shares times market price per share
     var subValue = itemQ * itemP;
     $(ele).children('.ItemTotal').html(subValue);
   
@@ -14,3 +13,18 @@ var updateValue = function (ele) {
       var marketValue = updateValue(ele);
     });
   });
+
+  var sum = function (acc, x) { return acc + x; };
+var updateTotal = function () {
+    var Totalvalue = [];
+    $('tbody tr').each(function(i, ele) {
+        var newValue = updateValue(ele);
+        Totalvalue.push(newValue);
+    })
+    var total = Totalvalue.reduce(sum);
+  $('#Total').html(total)
+}
+
+$(document).ready(function () {
+    updateTotal();
+});
