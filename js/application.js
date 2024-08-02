@@ -56,9 +56,9 @@ $(document).ready(function () {
     '</tr>');
 
     updateTotal();
-    $('this').children('[name = Item]').val('');
-    $('this').children('[name = quantity]').val('');
-    $('this').children('[name = Price]').val('');
+    $(this).children('[name = Item]').val('');
+    $(this).children('[name = quantity]').val('');
+    $(this).children('[name = Price]').val('');
     });
 
 });
